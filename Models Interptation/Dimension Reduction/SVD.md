@@ -48,14 +48,11 @@ $$
 \end{alignat*}
 $$
 
-Again, the maximum of $||Ay||$ is obtained at $ (0, 1, 0, ..., 0) = v_2$.
+Again, the maximum of $||Ay||$ is obtained at $(0, 1, 0, ..., 0) = v_2$.
 
-Further induction can be shown similarly. Thus, multiply by the eigenvectors of $A^TA$, $ \{Av_1, Av_2, ..., Av_n \} $ are the stretching directions of rectangular matrix $A$.
+Further induction can be shown similarly. Thus, multiply by the eigenvectors of $A^TA$, $\{Av_1, Av_2, ..., Av_n \}$ are the stretching directions of rectangular matrix $A$.
 
-As $ \{v_1, v_2, ..., v_n \} $ are orthonormal vectors, the stretching length is the norm of $ \{Av_1, Av_2, ..., Av_n \} $
-
-<!-- #### REMARKS--The stretching directions are also perpendicular
-Let $u_1=Av_1$, $u_2=Av_2$ and $v_1$, $v_2$ are the eigenvectors of $A^TA$, then $v_1^Tv_2=0$ and $u_1^Tu_2={v_1}^TA^TAv_2=0$ -->
+As $\{v_1, v_2, ..., v_n \}$ are orthonormal vectors, the stretching length is the norm of $\{Av_1, Av_2, ..., Av_n \}$
 
 
 
@@ -76,19 +73,21 @@ Now, without loss of generality, assume that $m \ge n$ and the rank of $A$, $r_A
 
 As $A^TA$ and $AA^T$ have the same rank as $A$, they also both have $n$ eigenvectors and eigenvalues. One can show the eigenvalues actually the same. 
 
-From $ A^TAV = V\Lambda_n $, we can have $ AA^T(AV) = (AV)\Lambda_n $. $AV \in R^{m,n}$ and $\Lambda_n \in R^{n,n}$ which can be extended to $\Lambda_m \in R^{m,m}$ by adding zero entries. It is because that the last $m-n$ diagonal entries of $\Lambda_m$ is zero. And $U$ can be extended to a orthonormal matrix by orthogornalization.
+From $A^TAV = V\Lambda_n$, we can have $AA^T(AV) = (AV)\Lambda_n$. $AV \in R^{m,n}$ and $\Lambda_n \in R^{n,n}$ which can be extended to $\Lambda_m \in R^{m,m}$ by adding zero entries. It is because that the last $m-n$ diagonal entries of $\Lambda_m$ is zero. And $U$ can be extended to a orthonormal matrix by orthogornalization.
 
 $$ \left[ \frac{AV}{||AV||}, U^{'}\right] = U $$
 
 And, then
-$$
+
+$$ 
 \begin{alignat*}{2}
 AA^T(AV) &= (AV)\Lambda_n \\
 AA^T\left[ \frac{AV}{||AV||}, U^{'}\right] &= \left[ \frac{AV}{||AV||}, U^{'}\right]\left[ \Lambda_n, 0_{n,m}; 0_{m,n}, 0_{m-n,m-n}\right] \\
 AA^TU &= U\left[ \Lambda_n, 0_{n,m}; 0_{m,n}, 0_{m-n,m-n}\right] \\
 AA^TU &= U \Lambda_m
-\end{alignat*}
+\end{alignat*} 
 $$
+
 That is
 
 $$ \Lambda_m = \left[ \Lambda_n, 0_{n,m-n}; 0_{m-n,n}, 0_{m-n,m-n}\right] $$
@@ -103,23 +102,10 @@ As shown above, the assume the orginal space is $R^n$ and the projection space i
 
 $$
 \begin{alignat*}{2}
-\left[  \frac{AV}{||AV||}, U^{'}\right]_{m,m} 
-\begin{bmatrix}
-||AV||\\
-0_{m-n,n}
-\end{bmatrix}_{m,n} & = AV \\
-U
-\begin{bmatrix}
-||AV||\\
-0_{m-n,n}
-\end{bmatrix}_{m,n} &= AV \\
-A &= U
-\begin{bmatrix}
-\sqrt{\Lambda_n}\\
-0_{m-n,n}
-\end{bmatrix}_{m,n}
-V^T \\
-A &= U \Sigma V^T
+\left[ {\frac{AV}{||AV||}}, U^{'} \right] \left[ ||AV||, 0_{m-n,n} \right]^T & = AV \\
+U \left[ ||AV||, 0_{m-n,n} \right]^T &= AV \\
+A &= U \left[ \sqrt{\Lambda_n}, 0_{m-n,n} \right]^T V^T \\
+A &= U \Sigma V^T 
 \end{alignat*}
 $$
 
