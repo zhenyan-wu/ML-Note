@@ -8,9 +8,9 @@ Now, assume $A \in R^{m, n}$, $m \ge n$ and $x$ $\in$ $R^n$ such that $||x||=1$ 
 ![image](https://github.com/zhenyan-wu/ML-Note/assets/115028750/b334bb36-e3f2-4d9b-9364-6d1634e592fb)
 
 ### Why $v$ and $\sigma$ ?
-By definition, the maximum stretched direction of $A$ is $u_1=Ax^\*$ such that $||Ax^\*||$ is the maximum of $||Ax||$ and the second direction is the maximum one in the unit sphere perpendicular to $Ax^\*$. Before multiplying by $A$, the vectors on the original sphere are also orthogonal.
+By definition, the maximum stretched direction of $A$ is $u_1=Ax^{*}$ such that $||Ax^{*}||$ is the maximum of $||Ax||$ and the second direction is the maximum one in the unit sphere perpendicular to $Ax^{*}$. Before multiplying by $A$, the vectors on the original sphere are also orthogonal.
 
-For a symmetric matrix, the stretching direction remains the same in the original normal sphere ($x^\* \propto Ax^\*$) but it is not ensured for a general matrix.
+For a symmetric matrix, the stretching direction remains the same in the original normal sphere ($x^{*} \propto Ax^{*}$) but it is not ensured for a general matrix.
 
 #### Proof
 
@@ -28,7 +28,7 @@ $$
 \end{alignat*}
 $$
 
-Since $x_1, ..., x_n \in \(0, 1 \)$, the maximum of $||Ax||$ is obtained at $(1, 0, ..., 0) = v_1$.
+Since $x_1, ..., x_n \in (0, 1)$, the maximum of $||Ax||$ is obtained at $(1, 0, ..., 0) = v_1$.
 
 Similarly, the second stretched direction is difined as the vectors with the maximum length, which is perpendicular to $Av_1$. Assume the direction is $Ay$, $y \in R^n$, $||y|| = 1$ such that $y^TA^TAv_1=0$, which is $y^Tv_1=0$. 
 
