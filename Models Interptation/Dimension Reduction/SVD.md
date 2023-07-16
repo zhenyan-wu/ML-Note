@@ -115,22 +115,12 @@ U
 \end{bmatrix}_{m,n} &= AV \\
 A &= U
 \begin{bmatrix}
-||AV||\\
+\sqrt{\Lambda_n}\\
 0_{m-n,n}
 \end{bmatrix}_{m,n}
-V
+V^T \\
+A &= U \Sigma V^T
 \end{alignat*}
 $$
 
-where $||AV||$ is actually a diagonal matrix
-
-<!-- 
-Further, let $\Lambda_n = \Sigma
-_{m,n}^T \Sigma_{m,n} $ and $\Lambda_m = \Gamma_{m,n} \Gamma_{m,n}^T $ where $$\Sigma_{m,n} = \left[  \Sigma_m, 0_{n-m,m} \right]$$ and $$\Gamma_{m,n} = \left[  \Gamma_m, 0_{n-m,m} \right]$$
-
-Then the equations become
-
-$$ A^TAV = V \Sigma_{m,n}^T \Sigma_{m,n} $$
-
-$$ AA^TU = U \Gamma_{m,n} \Gamma_{m,n}^T $$ -->
 
