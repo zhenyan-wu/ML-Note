@@ -95,7 +95,7 @@ $$ \Lambda_m = \left[ \Lambda_n, 0_{n,m-n}; 0_{m-n,n}, 0_{m-n,m-n}\right] $$
 
 ### Back to the geometry
 
-As shown above, the assume the orginal space is $R^n$ and the projection space is $R^m$, $n \le m$. $\{ v_1, ..., v_n\}$ is an orthonormal basis in the original space. After projected by matrix $A \in R^{m,n}$, $\{ Av_1, ..., Av_n\}$ is the set of stretching directions in the projection space and it can be extended to a basis
+As shown above, the assume the orginal space is $R^n$ and the projection space is $R^m$, $n \le m$. $\{ v_1, ..., v_n\}$ is an orthonormal basis in the original space. After projected by matrix $A \in R^{m,n}$, $\{ Av_1, ..., Av_n\}$ is the set of stretching directions in the projection space and it can be extended to a basis in the targeted space.
 
 
 ## Decomposition
