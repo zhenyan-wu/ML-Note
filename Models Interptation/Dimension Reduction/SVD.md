@@ -1,5 +1,6 @@
 ## Singular value
 
+### Stretching
 Remind that the eigenvectors and eigenvalues of a symmetric matrix $A$ indicates the direction and magnitude of its shrinkage effects on a vector $x$. What if the matrix $A$ is not symmetrix or even not square?
 
 Now, assume $A$ $\in$ $R^{m, n}$ and $x$ $\in$ $R^n$ such that $||x||=1$ wlog, then what is the directions and lengths of the srtetching effect of $A$ on $x$ by $Ax$ ? The answers are $Av$ and $\sigma=||Av||$ where $v$ is the eigenvetors of $A^TA$, which are referred as singular vector and singular value.
@@ -7,11 +8,13 @@ Now, assume $A$ $\in$ $R^{m, n}$ and $x$ $\in$ $R^n$ such that $||x||=1$ wlog, t
 ![image](https://github.com/zhenyan-wu/ML-Note/assets/115028750/b334bb36-e3f2-4d9b-9364-6d1634e592fb)
 
 ### Why $v$ and $\sigma$ ?
-By definition, the maximum stretched direction of $A$ is $u_1=Ax^\*$ such that $||Ax^\*||$ is the maximum of $||Ax||$ and the second direction is the maximum one in the unit sphere perpendicular to $x^\*$. Notice that for a symmetric matrix, the stretching direction remains the same in the original normal sphere ($x^\* \propto Ax^\*$) but it is not ensured for a general matrix.
+By definition, the maximum stretched direction of $A$ is $u_1=Ax^\*$ such that $||Ax^\*||$ is the maximum of $||Ax||$ and the second direction is the maximum one in the unit sphere perpendicular to $Ax^\*$. Before multiplying by $A$, the vectors on the original sphere are also orthogonal.
+
+For a symmetric matrix, the stretching direction remains the same in the original normal sphere ($x^\* \propto Ax^\*$) but it is not ensured for a general matrix.
 
 #### Proof
 
-Let $x \in R^n$, $||x|| = 1$ and { $v_1, ..., v_n$ } be the basis so that 
+Let $x \in R^n$, $||x|| = 1$ and { $v_1, ..., v_n$ } be an orthonormal basis
 
 $$ x = x_1v_1 + ... + x_nv_n $$
 
@@ -20,15 +23,64 @@ then
 $$
 \begin{alignat*}{2}
 ||Ax||^2 &= {x}^TA^TAx \\
-& =  {(x_1v_1 + ... + x_nv_n)}^T{(\lambda_1x_1v_1 + ... + \lambda_nx_nv_n)} \\
-& = {(\lambda_1x_1^Tx_1 + ... + \lambda_nx_n^Tx_n)}
+& =  {(x_1v_1 + ... + x_nv_n)}^T{(\lambda_1 x_1v_1 + ... + \lambda_n x_nv_n)} \\
+& = {(\lambda_1x_1^2 + ... + \lambda_n x_n^2)}
 \end{alignat*}
 $$
 
-Since $x_1, ..., x_n \in \(0, 1 \)$, the maximum of $||Ax||$ is obtained at $x^\* = (1, 0, ..., 0) = v_1$ as required.
+Since $x_1, ..., x_n \in \(0, 1 \)$, the maximum of $||Ax||$ is obtained at $(1, 0, ..., 0) = v_1$.
 
-Thus, multiply by the eigenvectors of $A^TA$ are the stretching directions of rectangular matrix $A$.
+Similarly, the second stretched direction is difined as the vectors with the maximum length, which is perpendicular to $Av_1$. Assume the direction is $Ay$, $y \in R^n$, $||y|| = 1$ such that $y^TA^TAv_1=0$, which is $y^Tv_1=0$. 
 
-#### REMARKS--The stretching directions are also perpendicular
-Let $u_1=Av_1$, $u_2=Av_2$ and $v_1$, $v_2$ are the eigenvectors of $A^TA$, then $v_1^Tv_2=0$ and $u_1^Tu_2={v_1}^TA^TAv_2=0$
+$$ y = y_1v_1 + ... + y_nv_n $$
+
+If $y^Tv_1=0$, the first coordinate $y_1$ is zero. That is 
+
+$$ y = y_2v_2 + ... + y_nv_n $$
+
+then
+
+$$
+\begin{alignat*}{2}
+||Ay||^2 &= y^TA^TAy \\
+& =  {(y_2v_2 + ... + y_nv_n)}^T{(\lambda_2y_2v_2 + ... + \lambda_n y_nv_n)} \\
+& = {(\lambda_2y_2^2 + ... + \lambda_n y_n^2)}
+\end{alignat*}
+$$
+
+Again, the maximum of $||Ay||$ is obtained at $ (0, 1, 0, ..., 0) = v_2$.
+
+Further induction can be shown similarly. Thus, multiply by the eigenvectors of $A^TA$, $ \{Av_1, Av_2, ..., Av_n \} $ are the stretching directions of rectangular matrix $A$.
+
+As $ \{v_1, v_2, ..., v_n \} $ are orthonormal vectors, the stretching length is the norm of $ \{Av_1, Av_2, ..., Av_n \} $
+
+<!-- #### REMARKS--The stretching directions are also perpendicular
+Let $u_1=Av_1$, $u_2=Av_2$ and $v_1$, $v_2$ are the eigenvectors of $A^TA$, then $v_1^Tv_2=0$ and $u_1^Tu_2={v_1}^TA^TAv_2=0$ -->
+
+
+
+### Another side?
+We have investigated the case by right multiplication. What about from the other side?
+
+For an $m$ by $n$ matrxi $A$, $\{ v_1, v_2, ... , v_n\}$ are the eigenvectorfor $A^TA$,
+
+$$ A^TAV = V\Lambda_n $$
+
+Similarly, $\{ u_1, u_2, ... , u_m\}$ are the eigenvectorfor $AA^T$,
+
+$$ AA^TU = U\Lambda_m $$
+
+$V$ and $U$ are both orthonormal matrixs that $O^TO=I$.
+
+Now, without loss of generality, assume that $m \le n$ so that $ r_{A^TA}=r_{AA^T}=r_A \le m$. There are at most $m$ non-zero entries on the diagnal of $\Lambda_m$ and $\Lambda_n$. 
+
+That is $A^TA$ and $AA^T$ have same amount of eigenvalues. One can show they are actually the same. 
+
+Further, let $\Lambda_n = \Sigma_{m,n}^T \Sigma_{m,n} $ and $\Lambda_m = \Gamma_{m,n} \Gamma_{m,n}^T $ where $$\Sigma_{m,n} = \left[  \Sigma_m, 0_{n-m,m} \right]$$ and $$\Gamma_{m,n} = \left[  \Gamma_m, 0_{n-m,m} \right]$$
+
+Then the equations become
+
+$$ A^TAV = V \Sigma_{m,n}^T \Sigma_{m,n} $$
+
+$$ AA^TU = U \Gamma_{m,n} \Gamma_{m,n}^T $$
 
