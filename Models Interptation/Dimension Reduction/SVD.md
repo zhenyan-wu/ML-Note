@@ -3,7 +3,7 @@
 ### Stretching
 Remind that the eigenvectors and eigenvalues of a symmetric matrix $A$ indicates the direction and magnitude of its shrinkage effects on a vector $x$. What if the matrix $A$ is not symmetrix or even not square?
 
-Now, assume $A$ $\in$ $R^{m, n}$ and $x$ $\in$ $R^n$ such that $||x||=1$ wlog, then what is the directions and lengths of the srtetching effect of $A$ on $x$ by $Ax$ ? The answers are $Av$ and $\sigma=||Av||$ where $v$ is the eigenvetors of $A^TA$, which are referred as singular vector and singular value.
+Now, assume $A \in R^{m, n}$, $m \ge n$ and $x$ $\in$ $R^n$ such that $||x||=1$ wlog, then what is the directions and lengths of the srtetching effect of $A$ on $x$ by $Ax$ ? The answers are $Av$ and $\sigma=||Av||$ where $v$ is the eigenvetors of $A^TA$, which are referred as singular vector and singular value.
 
 ![image](https://github.com/zhenyan-wu/ML-Note/assets/115028750/b334bb36-e3f2-4d9b-9364-6d1634e592fb)
 
@@ -72,15 +72,65 @@ $$ AA^TU = U\Lambda_m $$
 
 $V$ and $U$ are both orthonormal matrixs that $O^TO=I$.
 
-Now, without loss of generality, assume that $m \le n$ so that $ r_{A^TA}=r_{AA^T}=r_A \le m$. There are at most $m$ non-zero entries on the diagnal of $\Lambda_m$ and $\Lambda_n$. 
+Now, without loss of generality, assume that $m \ge n$ and the rank of $A$, $r_A=n$, which means $A$ has $n$ independent column vector and therefore $n$ orthorgonal eigenvectors and $n$ non-zero eigenvalues.
 
-That is $A^TA$ and $AA^T$ have same amount of eigenvalues. One can show they are actually the same. 
+As $A^TA$ and $AA^T$ have the same rank as $A$, they also both have $n$ eigenvectors and eigenvalues. One can show the eigenvalues actually the same. 
 
-Further, let $\Lambda_n = \Sigma_{m,n}^T \Sigma_{m,n} $ and $\Lambda_m = \Gamma_{m,n} \Gamma_{m,n}^T $ where $$\Sigma_{m,n} = \left[  \Sigma_m, 0_{n-m,m} \right]$$ and $$\Gamma_{m,n} = \left[  \Gamma_m, 0_{n-m,m} \right]$$
+From $ A^TAV = V\Lambda_n $, we can have $ AA^T(AV) = (AV)\Lambda_n $. $AV \in R^{m,n}$ and $\Lambda_n \in R^{n,n}$ which can be extended to $\Lambda_m \in R^{m,m}$ by adding zero entries. It is because that the last $m-n$ diagonal entries of $\Lambda_m$ is zero. And $U$ can be extended to a orthonormal matrix by orthogornalization.
+
+$$ \left[ \frac{AV}{||AV||}, U^{'}\right] = U $$
+
+And, then
+$$
+\begin{alignat*}{2}
+AA^T(AV) &= (AV)\Lambda_n \\
+AA^T\left[ \frac{AV}{||AV||}, U^{'}\right] &= \left[ \frac{AV}{||AV||}, U^{'}\right]\left[ \Lambda_n, 0_{n,m}; 0_{m,n}, 0_{m-n,m-n}\right] \\
+AA^TU &= U\left[ \Lambda_n, 0_{n,m}; 0_{m,n}, 0_{m-n,m-n}\right] \\
+AA^TU &= U \Lambda_m
+\end{alignat*}
+$$
+That is
+
+$$ \Lambda_m = \left[ \Lambda_n, 0_{n,m-n}; 0_{m-n,n}, 0_{m-n,m-n}\right] $$
+
+
+### Back to the geometry
+
+As shown above, the assume the orginal space is $R^n$ and the projection space is $R^m$, $n \le m$. $\{ v_1, ..., v_n\}$ is an orthonormal basis in the original space. After projected by matrix $A \in R^{m,n}$, $\{ Av_1, ..., Av_n\}$ is the set of stretching directions in the projection space and it can be extended to a basis
+
+
+## Decomposition
+
+$$
+\begin{alignat*}{2}
+\left[  \frac{AV}{||AV||}, U^{'}\right]_{m,m} 
+\begin{bmatrix}
+||AV||\\
+0_{m-n,n}
+\end{bmatrix}_{m,n} & = AV \\
+U
+\begin{bmatrix}
+||AV||\\
+0_{m-n,n}
+\end{bmatrix}_{m,n} &= AV \\
+A &= U
+\begin{bmatrix}
+||AV||\\
+0_{m-n,n}
+\end{bmatrix}_{m,n}
+V
+\end{alignat*}
+$$
+
+where $||AV||$ is actually a diagonal matrix
+
+<!-- 
+Further, let $\Lambda_n = \Sigma
+_{m,n}^T \Sigma_{m,n} $ and $\Lambda_m = \Gamma_{m,n} \Gamma_{m,n}^T $ where $$\Sigma_{m,n} = \left[  \Sigma_m, 0_{n-m,m} \right]$$ and $$\Gamma_{m,n} = \left[  \Gamma_m, 0_{n-m,m} \right]$$
 
 Then the equations become
 
 $$ A^TAV = V \Sigma_{m,n}^T \Sigma_{m,n} $$
 
-$$ AA^TU = U \Gamma_{m,n} \Gamma_{m,n}^T $$
+$$ AA^TU = U \Gamma_{m,n} \Gamma_{m,n}^T $$ -->
 
