@@ -5,7 +5,7 @@ Remind that the eigenvectors and eigenvalues of a symmetric matrix $A$ indicates
 
 Now, assume $A \in R^{m, n}$, $m \ge n$ and $x$ $\in$ $R^n$ such that $||x||=1$ wlog, then what is the directions and lengths of the srtetching effect of $A$ on $x$ by $Ax$ ? The answers are $Av$ and $\sigma=||Av||$ where $v$ is the eigenvetors of $A^TA$, which are referred as singular vector and singular value.
 
-![image](https://github.com/zhenyan-wu/ML-Note/assets/115028750/b334bb36-e3f2-4d9b-9364-6d1634e592fb)
+<div align=center><img src="https://github.com/zhenyan-wu/ML-Note/assets/115028750/b334bb36-e3f2-4d9b-9364-6d1634e592fb"/></div>
 
 ### Why $v$ and $\sigma$ ?
 By definition, the maximum stretched direction of $A$ is $u_1=Ax^{*}$ such that $||Ax^{*}||$ is the maximum of $||Ax||$ and the second direction is the maximum one in the unit sphere perpendicular to $Ax^{*}$. Before multiplying by $A$, the vectors on the original sphere are also orthogonal.
@@ -108,5 +108,25 @@ A &= U \left[ \sqrt{\Lambda_n}, 0_{m-n,n} \right]^T V^T \\
 A &= U \Sigma V^T 
 \end{alignat*}
 $$
+
+It can be also written explictly in terms of projection matrix $u_iv_i^T$
+
+$$  \begin{alignat*}{2}
+A &= \begin{bmatrix} u_1 & ... & u_m \end{bmatrix} \begin{bmatrix}
+    \sigma_1 v_1^T \\
+    ... \\
+    \sigma_n v_n^T \\
+    0 \\
+    ... \\
+    0
+    \end{bmatrix} \\
+  &= \sigma_1u_1v_1^T + ... + \sigma_nu_nv_n^T
+    \end{alignat*}$$
+
+$u_1v_1^Tx$ gives the projection of x onto the basic vector $u_1$ in the projection space. The length of such projection is not determined by $u_1$ but $v_1$ the basic vector in the original space. That is, the co-ordinate of $u_i$ in the target space is the scalar projection of $x$ on $v_i$.
+
+For the rectangular matrix $A$, the projection of $x$ can be decomposed by only the first n basis vectors, and the length is scaled by the product of $\sigma_i$, the sigular value and $v_i^Tx$, the projection on the basis of original space.
+
+<div align=center><img src="https://github.com/zhenyan-wu/ML-Note/assets/115028750/3c79a9ff-9b0f-45b7-b704-42679e6d4903"/></div>
 
 
