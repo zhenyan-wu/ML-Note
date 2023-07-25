@@ -28,7 +28,7 @@ Thus, it is expected that the covariance matrix of the feature space is diagonal
 The input, as mentioned before, is a set of data points or a rectangular matrix $X \in R^{m,n}$ where $m$ is the number of features and $n$ is the number of data.
 
 Then, the covariance matrix can be expressed as $$\Sigma=XX^T$$
-For example, $\Sigma_{1,1}=\sum^n_{i=1}{x_1}_i^2$
+For example, $\Sigma_{1,1}=\sum_{i=1}{{x_1}_i^2}$
 
 Known from the SVD, the principal component of $X$ is $Xv$ where $v$ is the eigenvectors of the covariance matrix
 
