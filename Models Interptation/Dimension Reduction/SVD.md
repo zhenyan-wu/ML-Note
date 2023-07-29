@@ -6,9 +6,9 @@ Remind that the eigenvectors and eigenvalues of a symmetric matrix $A$ indicates
 Now, assume $A \in R^{m, n}$, $m \ge n$ and $x$ $\in$ $R^n$ such that $||x||=1$ wlog, then what is the directions and lengths of the srtetching effect of $A$ on $x$ by $Ax$ ? The answers are $Av$ and $\sigma=||Av||$ where $v$ is the eigenvetors of $A^TA$, which are referred as singular vector and singular value.
 
 ### Why $v$ and $\sigma$ ?
-By definition, the maximum stretched direction of $A$ is $u_1=Ax^{*}$ such that $||Ax^{*}||$ is the maximum of $||Ax||$ and the second direction is the maximum one in the unit sphere perpendicular to $Ax^{*}$. Before multiplying by $A$, the vectors on the original sphere are also orthogonal.
+By definition, the maximum stretched direction of $A$ is $u_1=Ax^{\*}$ such that $||Ax^{\*}||$ is the maximum of $||Ax||$ and the second direction is the maximum one in the unit sphere perpendicular to $Ax^{*}$. Before multiplying by $A$, the vectors on the original sphere are also orthogonal.
 
-For a symmetric matrix, the stretching direction remains the same in the original normal sphere ($x^{*} \propto Ax^{*}$) but it is not ensured for a general matrix.
+For a symmetric matrix, the stretching direction remains the same in the original normal sphere ($x^{\*}\propto Ax^{*}$) but it is not ensured for a general matrix.
 
 #### Proof
 
