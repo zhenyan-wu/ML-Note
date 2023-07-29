@@ -42,14 +42,17 @@ Then,
 1. Compute the covariance matrix $$\Sigma=XX^T$$
 2. Compute the eigenvectors matrix, denoted by $W$ where each column is an eigenvector.
 3. Choose a subset of column of $W$, denoted by $W^{'}$
+
 $$ {W^{'}}^T=\begin{bmatrix}
     w_1^T \\
     w_2^T \\
     ... \\
     w_r^T \\
     \end{bmatrix} \\ $$
+
 4. Multiply ${W^{'}}^T$ by $X$ and obtain the new co-ordinate of the data points.
-$$  \begin{alignat*}{2}
+
+$$\begin{alignat*}{2}
 X^{'} &= {W^{'}}^TX \\
 &=\begin{bmatrix}
     w_1^T \\
@@ -60,6 +63,7 @@ X^{'} &= {W^{'}}^TX \\
     x_1, ..., x_n
     \end{bmatrix}_{m,n}\\
     \end{alignat*}$$
+    
 so that the first column of $X^{'}$ is the new coordinate of the first observation and each coordinate is the projection of the original data point to the corresponding eigenvector.
 
 
