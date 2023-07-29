@@ -48,23 +48,26 @@ $$ {W^{'}}^T=\begin{bmatrix}
     w_2^T \\
     ... \\
     w_r^T \\
-    \end{bmatrix} \\ $$
+    \end{bmatrix}
+$$
 
 4. Multiply ${W^{'}}^T$ by $X$ and obtain the new co-ordinate of the data points.
 
-$$\begin{alignat*}{2}
+$$
+\begin{alignat*}{2}
 X^{'} &= {W^{'}}^TX \\
-&=\begin{bmatrix}
+&={\begin{bmatrix}
     w_1^T \\
     w_2^T \\
     ... \\
     w_r^T \\
-    \end{bmatrix}_{r,m} \begin{bmatrix}
+    \end{bmatrix}} {\begin{bmatrix}
     x_1, ..., x_n
-    \end{bmatrix}_{m,n}\\
-    \end{alignat*}$$
+    \end{bmatrix}}\\
+    \end{alignat*}
+$$
     
-so that the first column of $X^{'}$ is the new coordinate of the first observation and each coordinate is the projection of the original data point to the corresponding eigenvector.
+so that $X^{'}$ is an $r$ by $n$ matrix and the first column is the new coordinate of the first observation and each coordinate is the projection of the original data point to the corresponding eigenvector.
 
 
 
