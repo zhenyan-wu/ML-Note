@@ -23,14 +23,25 @@ In order to allow each feature to hold as much information as possible, the feat
 
 Thus, it is expected that the covariance matrix of the feature space is diagonal and the the diagonal entries (indicating the variance of each feature is in a descending order) and the tail of the diagonal matrix may be neglected due to its extremely small eigen value, which is dimension reduction. (In linear algebra, the sum of eigenvalues is the trace of the original matrix, which is the sum of the variances for all features in the covariance matrix)
 
+### Geometric Interpretation
+
+Remind that a square matrix can be viewed as a projector and the eigenvectors reflect the directions or the principal component. The sigma matrix of x can also be viewes as a projector, the resulted projected sphere is the scatter sphere of the data matrix $X$. 
+
+It can be viewed as a sum of projection matrix that $$\Sigma=\sum_{i=1}x_ix_i^T$$
+Multiply by a unit vector $u$ is equivalent to taking the sum of projection of $u$ on $x_i$ for each $i$, so the projected sphere $Au$ will be skewed in the direction of more data points.
+
+As a result, the eigenvectors of the sigma matrix can represent the principal component of the data sphere. (It can also be shown mathematically that the eigenvectors are the solution of "large variance and small covariance")
+
+
 ### Input and Output
 
 The input, as mentioned before, is a set of data points or a rectangular matrix $X \in R^{m,n}$ where $m$ is the number of features and $n$ is the number of data.
 
-Then, the covariance matrix can be expressed as $$\Sigma=XX^T$$
-For example, $\Sigma_{1,1}=\sum_{i=1}{{x_1}_i^2}$
+Then, 
 
-Known from the SVD, the principal component of $X$ is $Xv$ where $v$ is the eigenvectors of the covariance matrix
+1. Compute the covariance matrix $$\Sigma=XX^T$$
+2. Compute the eigenvectors and eigenvalues of $\Sigma$.
+3.  
 
 
 
